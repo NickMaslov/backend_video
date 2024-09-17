@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
 import mongoose from "mongoose";
+import router from "./router";
 require("dotenv").config();
 
 const app = express();
@@ -30,3 +31,5 @@ const MONGO_URL = process.env.MONGO_URL;
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL).then(() => console.log("db connected!"));
 mongoose.connection.on("error", (error: Error) => console.log(error));
+
+app.use("/", router());
