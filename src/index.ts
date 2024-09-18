@@ -30,6 +30,8 @@ const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL).then(() => console.log("db connected!"));
+
+console.log("test");
 mongoose.connection.on("error", (error: Error) => console.log(error));
 
 app.use("/", router());
